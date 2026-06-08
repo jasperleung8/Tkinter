@@ -1,0 +1,44 @@
+from tkinter import *
+import tkinter.font as fn
+
+window = Tk()
+
+bold = fn.Font(family="Nunito",size=15,weight="bold")
+nonBold = fn.Font(family="Nunito",size=15)
+
+def convert():
+    kg = float(entry.get())
+    g = kg*1000
+    p = kg*2.0462
+    o = kg*35.274
+    Gram.config(text=g)
+    Pounds.config(text=p)
+    Ounce.config(text=o)
+
+topFrame = Frame(window)
+topFrame.pack()
+
+text = Label(topFrame,text="Enter Weight in Kg :",font=bold)
+text.grid(row=0,column=0)
+entry = Entry(topFrame)
+entry.grid(row=0,column=1)
+button = Button(topFrame,text="Convert",font=nonBold,command=convert)
+button.grid(row=0,column=2)
+
+bottomFrame = Frame(window)
+bottomFrame.pack()
+text2 = Label(bottomFrame,text="Gram",font=bold)
+text2.grid(row=1,column=0,padx=20)
+text3 = Label(bottomFrame,text="Pounds",font=bold)
+text3.grid(row=1,column=1,padx=20)
+text4 = Label(bottomFrame,text="Ounce",font=bold)
+text4.grid(row=1,column=2,padx=20)
+
+Gram = Label(bottomFrame,text="",font=nonBold)
+Gram.grid(row=2,column=0,padx=20)
+Pounds = Label(bottomFrame,text="",font=nonBold)
+Pounds.grid(row=2,column=1,padx=20)
+Ounce = Label(bottomFrame,text="",font=nonBold)
+Ounce.grid(row=2,column=2,padx=20)
+
+window.mainloop()
