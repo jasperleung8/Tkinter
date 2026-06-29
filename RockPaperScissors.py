@@ -29,26 +29,26 @@ def game(playerChoice):
 window = Tk()
 window.geometry("500x500")
 topframe = Frame(window)
-topframe.pack()
+topframe.grid(row=0,column=0,columnspan=2)
 
 title = Label(topframe,text="Rock Paper Scissors!",font=("Comfortaa",30))
-title.pack()
+title.grid()
 
 leftframe = Frame(window)
-leftframe.pack(side="left",padx=20)
+leftframe.grid(row=1,column=0,padx=30)
 
 text = Label(leftframe,text="Select an option",font=("Comfortaa",20))
 rockButton = Button(leftframe,text="Rock",width=10,command=lambda:game(options[0]))
 paperButton = Button(leftframe,text="Paper",width=10,command=lambda:game(options[1]))
 scissorsButton = Button(leftframe,text="Scissors",width=10,command=lambda:game(options[2]))
 
-text.pack(pady=16)
-rockButton.pack(pady=8)
-paperButton.pack(pady=8)
-scissorsButton.pack(pady=8)
+text.grid(pady=16)
+rockButton.grid(pady=8)
+paperButton.grid(pady=8)
+scissorsButton.grid(pady=8)
 
 rightframe = Frame(window)
-rightframe.pack(side="right",padx=80)
+rightframe.grid(row=1,column=1,padx=30,pady=50)
 
 youSelected_text = Label(rightframe,text="You selected:")
 youSelected_text2 = Label(rightframe)
@@ -60,21 +60,21 @@ yourScore_text2 = Label(rightframe)
 compScore_text = Label(rightframe,text="Computer Score:")
 compScore_text2 = Label(rightframe)
 
-youSelected_text.pack(pady=5)
-youSelected_text2.pack(pady=5)
-compSelected_text.pack(pady=5)
-compSelected_text2.pack(pady=5)
+youSelected_text.grid(pady=5)
+youSelected_text2.grid(pady=5)
+compSelected_text.grid(pady=5)
+compSelected_text2.grid(pady=5)
 
-yourScore_text.pack(pady=5)
-yourScore_text2.pack(pady=5)
-compScore_text.pack(pady=5)
-compScore_text2.pack(pady=5)
+yourScore_text.grid(pady=5)
+yourScore_text2.grid(pady=5)
+compScore_text.grid(pady=5)
+compScore_text2.grid(pady=5)
 
 bottomframe = Frame(window)
-bottomframe.pack(side="bottom")
+bottomframe.grid(row=2,column=0,columnspan=2)
 
 message = Label(bottomframe)
-message.pack()
+message.grid()
 
 
 window.mainloop()
