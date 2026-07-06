@@ -18,14 +18,23 @@ def start():
     while total >= 0 :
         mins,secs = divmod(total,60)
         hrs = 0
-        if minutes > 60:
-            hrs,mins = divmod(total,60)
+        if mins > 60:
+            hrs,mins = divmod(mins,60)
         
         h.set(hrs)
         m.set(mins)
         s.set(secs)
+        print(secs)
         window.update()
         time.sleep(1)
+        total = total -1
+    
+    messagebox.showinfo(message="Your Timer is Up!")
+
+    hours.config(state="normal")
+    minutes.config(state="normal")
+    seconds.config(state="normal")
+    button.config(state="active")
 
 def reset():
     h.set("00")
