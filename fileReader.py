@@ -22,6 +22,14 @@ def saveFile():
             print(item.strip(),file=file)
         list.delete(0,END)
 
+def loadFile():
+    file = askopenfile(filetypes=[("Text document","*.txt")])
+    if file is not None:
+        list.delete(0,END)
+        items = file.readlines()
+        for item in items:
+            list.insert(END,item)
+
 
 bar = Scrollbar(window)
 bar.grid(row=0,column=0)
@@ -32,7 +40,7 @@ list.grid(row=0,column=1)
 save = Button(window,text="Save",command=saveFile)
 save.grid(row=0,column=2,padx=15)
 
-load = Button(window,text="Load")
+load = Button(window,text="Load",command=loadFile)
 load.grid(row=0,column=3)
 
 add = Button(window,text="Add",command=addItem)
