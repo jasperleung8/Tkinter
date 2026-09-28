@@ -126,8 +126,7 @@ def botTurn():
             if checkWin(botMarker):
                 print()
                 Win(botMarker)
-            elif checkDraw():
-                Draw()
+                return
             else:
                 Gameboard[pos].config(text="")
 
@@ -144,19 +143,26 @@ def botTurn():
     if Gameboard[5].cget("text") == "":
         Gameboard[5].config(text=botMarker)
         currentPlayer = playerMarker
+        if checkDraw():
+            Draw()
         return
     
     for coner in [1,3,7,9]:
         if Gameboard[coner].cget("text") == "":
             Gameboard[coner].config(text=botMarker)
             currentPlayer = playerMarker
+            if checkDraw():
+                Draw()
             return
     
     for pos in Gameboard:
         if Gameboard[pos].cget("text") == "":
             Gameboard[pos].config(text=botMarker)
             currentPlayer = playerMarker
+            if checkDraw():
+                Draw()
             return
+    
 
 
 
@@ -180,11 +186,6 @@ box5.grid(row=1,column=1)
 box6.grid(row=1,column=2)
 box7.grid(row=2,column=0)
 box8.grid(row=2,column=1)
-box9.grid(row=2,column=2)
-
-
-
-gameScreen.mainloop()
 box9.grid(row=2,column=2)
 
 
